@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
@@ -20,53 +20,103 @@
     input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
     .footer { text-align: center; font-size: 14px; margin-top: 30px; color: #666; }
     .whatsapp { background: #25D366; color: white; text-decoration: none; padding: 10px 20px; display: inline-block; margin-top: 10px; border-radius: 5px; }
+    .success, .error { display: none; padding: 10px; margin-top: 10px; border-radius: 5px; }
+    .success { background-color: #d4edda; color: #155724; }
+    .error { background-color: #f8d7da; color: #721c24; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="logo.png" alt="Pinjaman Koperasi">
+      <img src="koperasi4u.github.io/landing-page/logo.png" alt="Pinjaman Koperasi">
     </div>
 
-    <h1>Pinjaman Koperasi Untuk Penjawat Awam/GLC</h1>
-    <p style="text-align:center;">Cepat, Selamat & Patuh Syariah – Mohon Sekarang!</p>
+```
+<h1>Pinjaman Koperasi Untuk Kakitangan Kerajaan</h1>
+<p style="text-align:center;">Cepat, Selamat & Patuh Syariah – Mohon Sekarang!</p>
 
-    <div class="features">
-      <ul>
-        <li>Kadar serendah 2.69%</li>
-        <li>Kelulusan pantas 3 hari</li>
-        <li>Tanpa penjamin</li>
-        <li>Patuh Syariah</li>
-      </ul>
-    </div>
+<div class="features">
+  <ul>
+    <li>Kadar serendah 2.31%</li>
+    <li>Kelulusan pantas 3 hari</li>
+    <li>Tanpa penjamin</li>
+    <li>Patuh Syariah</li>
+  </ul>
+</div>
 
-    <div class="cta">
-      <a href="https://www.koperasi4u.com.my">Mohon Sekarang</a>
+<div class="form-section">
+  <h2>Permohonan Segera</h2>
+  <form id="loanForm">
+    <input type="text" id="nama" placeholder="Nama Penuh" required>
+<input type="number" id="ic" placeholder="No. IC*" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+    <input type="text" id="email" placeholder="Email*" required>
+<input type="number" id="telefon" placeholder="No. Telefon (WhatsApp)*" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">    <input type="text" id="jabatan" placeholder="Kementerian / Jabatan" >
+<div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px;">
+  <input type="checkbox" id="persetujuan" required style="margin-top: 4px;">
+  <label for="persetujuan" style="font-size: 14px;">
+    <strong>Persetujuan*</strong><br>
+    Dengan menandakan kotak, klik pada butang setuju dan dapatkan kadar saya / setuju dan lihat kadar saya di bawah, saya mengisytiharkan dan mengesahkan bahawa semua maklumat yang diberikan di sini adalah lengkap, benar dan tepat. Saya juga mengesahkan bahawa saya telah membaca dan bersetuju menerima 
+    <a href="#" target="_blank">Dasar Privasi</a> dan 
+    <a href="#" target="_blank">Syarat Penggunaan</a>.
+  </label>
+</div>    <div class="cta">
+      <button type="submit">Hantar Permohonan</button>
     </div>
+    <div class="success" id="successMessage">Permohonan berjaya dihantar!</div>
+    <div class="error" id="errorMessage">Ralat semasa penghantaran. Sila cuba semula.</div>
+  </form>
+</div>
 
-    <div class="form-section">
-      <h2>Permohonan Segera</h2>
-      <form>
-        <input type="text" placeholder="Nama Penuh" required>
-        <input type="text" placeholder="No. IC" required>
-        <input type="text" placeholder="Gaji Kasar Bulanan" required>
-        <input type="tel" placeholder="No. Telefon (WhatsApp)" required>
-        <input type="text" placeholder="Kementerian / Jawatan" required>
-        <div class="cta">
-          <a href="https://www.koperasi4u.com.my">Hantar Permohonan</a>
-        </div>
-      </form>
-    </div>
+<div class="cta">
+  <a class="whatsapp" href="https://wa.me/60102874677">WhatsApp Perunding Kami</a>
+</div>
 
-    <div class="cta">
-      <a class="whatsapp" href="https://wa.me/60102874677">WhatsApp Perunding Kami</a>
-    </div>
+<div class="footer">
+  <p>Muhibbah Alliance Capital Sdn Bhd</p>
+  <p>No. Pendaftaran: 202101031832 (1432132-H)</p>
+  <p>Alamat: 58-1, Jalan Tasik Utama 7, Medan Niaga Tasik Damai,<br>Sungai Besi, 57000 Kuala Lumpur, Malaysia</p>
+</div>
+```
 
-    <div class="footer">
-      <p>Muhibbah Alliance Capital Sdn Bhd</p>
-      <p>No. Pendaftaran: 202101031832 (1432132-H)</p>
-      <p>Alamat: 58-1, Jalan Tasik Utama 7, Medan Niaga Tasik Damai,<br>Sungai Besi, 57000 Kuala Lumpur, Malaysia</p>
-    </div>
   </div>
+
+  <script>
+    const form = document.getElementById('loanForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        nama: document.getElementById('nama').value,
+        ic: document.getElementById('ic').value,
+        gaji: document.getElementById('gaji').value,
+        telefon: document.getElementById('telefon').value,
+        jawatan: document.getElementById('jawatan').value
+      };
+
+      fetch('https://script.google.com/macros/s/PASTE_YOUR_WEB_APP_URL_HERE/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => response.text())
+      .then(result => {
+        if (result.toLowerCase().includes("berjaya")) {
+          successMessage.style.display = 'block';
+          errorMessage.style.display = 'none';
+          form.reset();
+        } else {
+          throw new Error("Server error");
+        }
+      })
+      .catch(error => {
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'block';
+      });
+    });
+  </script>
+
 </body>
 </html>
