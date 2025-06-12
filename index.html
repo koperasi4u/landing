@@ -1,17 +1,19 @@
+<!-- Simpan fail ini sebagai: index.html -->
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pinjaman Koperasi - Muhibbah Alliance Capital</title>
 
   <!-- SEO & OG Tags -->
-  <meta name="description" content="Mohon pinjaman koperasi patuh Syariah dengan kadar serendah 2.69%. Cepat, mudah dan tanpa penjamin. Khas untuk kakitangan kerajaan.">
-  <meta property="og:title" content="Pinjaman Koperasi - Muhibbah Alliance Capital">
-  <meta property="og:description" content="Pinjaman koperasi patuh Syariah untuk kakitangan kerajaan. Kelulusan dalam 3 hari tanpa penjamin.">
-  <meta property="og:image" content="https://example.com/preview.jpg">
-  <meta property="og:url" content="https://example.com">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Mohon pinjaman koperasi patuh Syariah dengan kadar serendah 2.69%. Cepat, mudah dan tanpa penjamin. Khas untuk kakitangan kerajaan." />
+  <meta property="og:title" content="Pinjaman Koperasi - Muhibbah Alliance Capital" />
+  <meta property="og:description" content="Pinjaman koperasi patuh Syariah untuk kakitangan kerajaan. Kelulusan dalam 3 hari tanpa penjamin." />
+  <meta property="og:image" content="https://example.com/preview.jpg" />
+  <meta property="og:url" content="https://example.com" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; color: #333; }
@@ -43,7 +45,7 @@
 <body>
   <div class="container">
     <div class="logo">
-      <img src="logo.png" alt="Pinjaman Koperasi" onerror="this.style.display='none'">
+      <img src="logo.png" alt="Pinjaman Koperasi" onerror="this.style.display='none'" />
     </div>
 
     <h1>Pinjaman Koperasi Untuk Kakitangan Kerajaan</h1>
@@ -62,22 +64,22 @@
       <h2>Permohonan Segera</h2>
       <form id="loanForm">
         <label for="nama">Nama Penuh</label>
-        <input type="text" id="nama" name="nama" required>
+        <input type="text" id="nama" name="nama" required />
 
         <label for="email">Email*</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required />
 
         <label for="telefon">No. Telefon (WhatsApp)*</label>
-        <input type="tel" id="telefon" name="telefon" required>
+        <input type="tel" id="telefon" name="telefon" required />
 
         <label for="jabatan">Kementerian / Jabatan</label>
-        <input type="text" id="jabatan" name="jabatan">
+        <input type="text" id="jabatan" name="jabatan" />
 
         <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px;">
-          <input type="checkbox" id="persetujuan" required style="margin-top: 4px;">
+          <input type="checkbox" id="persetujuan" required style="margin-top: 4px;" />
           <label for="persetujuan" style="font-size: 14px;">
-            <strong>Persetujuan*</strong><br>
-            Dengan menandakan kotak, saya mengesahkan bahawa semua maklumat adalah benar dan saya telah membaca & bersetuju dengan 
+            <strong>Persetujuan*</strong><br />
+            Saya bersetuju dan mengesahkan bahawa maklumat ini adalah benar serta telah membaca 
             <a href="#" target="_blank">Dasar Privasi</a> dan 
             <a href="#" target="_blank">Syarat Penggunaan</a>.
           </label>
@@ -101,7 +103,7 @@
     <div class="footer">
       <p>Muhibbah Alliance Capital Sdn Bhd</p>
       <p>No. Pendaftaran: 202101031832 (1432132-H)</p>
-      <p>Alamat: 58-1, Jalan Tasik Utama 7, Medan Niaga Tasik Damai,<br>Sungai Besi, 57000 Kuala Lumpur, Malaysia</p>
+      <p>Alamat: 58-1, Jalan Tasik Utama 7, Medan Niaga Tasik Damai,<br />Sungai Besi, 57000 Kuala Lumpur, Malaysia</p>
     </div>
   </div>
 
@@ -111,7 +113,7 @@
     const errorMessage = document.getElementById('errorMessage');
     const persetujuan = document.getElementById('persetujuan');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       if (!persetujuan.checked) {
@@ -133,21 +135,21 @@
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then(response => response.text())
-      .then(result => {
-        if (result.toLowerCase().includes("berjaya")) {
-          successMessage.style.display = 'block';
-          errorMessage.style.display = 'none';
-          form.reset();
-        } else {
-          throw new Error("Server error");
-        }
-      })
-      .catch(error => {
-        successMessage.style.display = 'none';
-        errorMessage.textContent = "Ralat semasa penghantaran. Sila cuba semula.";
-        errorMessage.style.display = 'block';
-      });
+        .then(response => response.text())
+        .then(result => {
+          if (result.toLowerCase().includes("berjaya")) {
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            form.reset();
+          } else {
+            throw new Error("Server error");
+          }
+        })
+        .catch(error => {
+          successMessage.style.display = 'none';
+          errorMessage.textContent = "Ralat semasa penghantaran. Sila cuba semula.";
+          errorMessage.style.display = 'block';
+        });
     });
   </script>
 </body>
