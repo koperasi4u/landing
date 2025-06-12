@@ -78,3 +78,77 @@
           <label for="persetujuan" style="font-size: 14px;">
             <strong>Persetujuan*</strong><br>
             Dengan menandakan kotak, saya mengesahkan bahawa semua maklumat adalah benar dan saya telah membaca & bersetuju dengan 
+            <a href="#" target="_blank">Dasar Privasi</a> dan 
+            <a href="#" target="_blank">Syarat Penggunaan</a>.
+          </label>
+        </div>
+
+        <div class="cta">
+          <button type="submit">Hantar Permohonan</button>
+        </div>
+
+        <div class="success" id="successMessage">Permohonan berjaya dihantar!</div>
+        <div class="error" id="errorMessage">Ralat semasa penghantaran. Sila cuba semula.</div>
+      </form>
+    </div>
+
+    <div class="cta">
+      <form action="https://wa.me/60102874677" target="_blank">
+        <button class="whatsapp" type="submit">WhatsApp Perunding Kami</button>
+      </form>
+    </div>
+
+    <div class="footer">
+      <p>Muhibbah Alliance Capital Sdn Bhd</p>
+      <p>No. Pendaftaran: 202101031832 (1432132-H)</p>
+      <p>Alamat: 58-1, Jalan Tasik Utama 7, Medan Niaga Tasik Damai,<br>Sungai Besi, 57000 Kuala Lumpur, Malaysia</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loanForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const persetujuan = document.getElementById('persetujuan');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!persetujuan.checked) {
+        errorMessage.textContent = "Sila setuju dengan terma sebelum menghantar.";
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+        return;
+      }
+
+      const data = {
+        nama: document.getElementById('nama').value,
+        email: document.getElementById('email').value,
+        telefon: document.getElementById('telefon').value,
+        jabatan: document.getElementById('jabatan').value
+      };
+
+      fetch('https://script.google.com/macros/s/AKfycbwv94hfxREF0wOeE0hPPmuU0VmzRDwwaMyniZz16eww4tngMsu_1A5oSzN06es-ABl4LA/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => response.text())
+      .then(result => {
+        if (result.toLowerCase().includes("berjaya")) {
+          successMessage.style.display = 'block';
+          errorMessage.style.display = 'none';
+          form.reset();
+        } else {
+          throw new Error("Server error");
+        }
+      })
+      .catch(error => {
+        successMessage.style.display = 'none';
+        errorMessage.textContent = "Ralat semasa penghantaran. Sila cuba semula.";
+        errorMessage.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
