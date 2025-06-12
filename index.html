@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pinjaman Koperasi - Muhibbah Alliance Capital</title>
+
+  <!-- SEO & OG Tags -->
+  <meta name="description" content="Mohon pinjaman koperasi patuh Syariah dengan kadar serendah 2.69%. Cepat, mudah dan tanpa penjamin. Khas untuk kakitangan kerajaan.">
+  <meta property="og:title" content="Pinjaman Koperasi - Muhibbah Alliance Capital">
+  <meta property="og:description" content="Pinjaman koperasi patuh Syariah untuk kakitangan kerajaan. Kelulusan dalam 3 hari tanpa penjamin.">
+  <meta property="og:image" content="https://example.com/preview.jpg">
+  <meta property="og:url" content="https://example.com">
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
     body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; color: #333; }
     .container { max-width: 700px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -15,12 +23,19 @@
     .features ul { list-style: none; padding: 0; }
     .features li { margin: 10px 0; padding-left: 20px; background: url('https://img.icons8.com/ios-filled/16/26e07f/checkmark.png') no-repeat left center; }
     .cta { text-align: center; margin: 20px 0; }
-    .cta a { background: #ff6600; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; }
+    .cta a, .cta button { background: #ff6600; color: white; padding: 12px 25px; text-decoration: none; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
     .form-section { margin: 30px 0; }
     input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+    label { font-weight: bold; display: block; margin-top: 10px; }
     .footer { text-align: center; font-size: 14px; margin-top: 30px; color: #666; }
     .whatsapp { background: #25D366; color: white; text-decoration: none; padding: 10px 20px; display: inline-block; margin-top: 10px; border-radius: 5px; }
-    .success, .error { display: none; padding: 10px; margin-top: 10px; border-radius: 5px; }
+    .success, .error {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
     .success { background-color: #d4edda; color: #155724; }
     .error { background-color: #f8d7da; color: #721c24; }
   </style>
@@ -28,92 +43,38 @@
 <body>
   <div class="container">
     <div class="logo">
-      <img src="logo.png" alt="Pinjaman Koperasi">
+      <img src="logo.png" alt="Pinjaman Koperasi" onerror="this.style.display='none'">
     </div>
 
-<h1>Pinjaman Koperasi Untuk Kakitangan Kerajaan</h1>
-<p style="text-align:center;">Cepat, Selamat & Patuh Syariah – Mohon Sekarang!</p>
+    <h1>Pinjaman Koperasi Untuk Kakitangan Kerajaan</h1>
+    <p style="text-align:center;">Cepat, Selamat & Patuh Syariah – Mohon Sekarang!</p>
 
-<div class="features">
-  <ul>
-    <li>Kadar serendah 2.69%</li>
-    <li>Kelulusan pantas 3 hari</li>
-    <li>Tanpa penjamin</li>
-    <li>Patuh Syariah</li>
-  </ul>
-</div>
-
-<div class="form-section">
-  <h2>Permohonan Segera</h2>
-  <form id="loanForm">
-    <input type="text" id="nama" placeholder="Nama Penuh" required>
-    <input type="email" id="email" placeholder="Email*" required>
-    <input type="text" id="telefon" placeholder="No. Telefon (WhatsApp)*" required>    
-    <input type="text" id="jabatan" placeholder="Kementerian / Jabatan" >
-<div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px;">
-  <input type="checkbox" id="persetujuan" required style="margin-top: 4px;">
-  <label for="persetujuan" style="font-size: 14px;">
-    <strong>Persetujuan*</strong><br>
-    Dengan menandakan kotak, klik pada butang setuju dan dapatkan kadar saya / setuju dan lihat kadar saya di bawah, saya mengisytiharkan dan mengesahkan bahawa semua maklumat yang diberikan di sini adalah lengkap, benar dan tepat. Saya juga mengesahkan bahawa saya telah membaca dan bersetuju menerima 
-    <a href="#" target="_blank">Dasar Privasi</a> dan 
-    <a href="#" target="_blank">Syarat Penggunaan</a>.
-  </label>
-</div>    <div class="cta">
-      <button type="submit">Hantar Permohonan</button>
+    <div class="features">
+      <ul>
+        <li>Kadar serendah 2.69%</li>
+        <li>Kelulusan pantas 3 hari</li>
+        <li>Tanpa penjamin</li>
+        <li>Patuh Syariah</li>
+      </ul>
     </div>
-    <div class="success" id="successMessage">Permohonan berjaya dihantar!</div>
-    <div class="error" id="errorMessage">Ralat semasa penghantaran. Sila cuba semula.</div>
-  </form>
-</div>
 
-<div class="cta">
-  <a class="whatsapp" href="https://wa.me/60102874677">WhatsApp Perunding Kami</a>
-</div>
+    <div class="form-section">
+      <h2>Permohonan Segera</h2>
+      <form id="loanForm">
+        <label for="nama">Nama Penuh</label>
+        <input type="text" id="nama" name="nama" required>
 
-<div class="footer">
-  <p>Muhibbah Alliance Capital Sdn Bhd</p>
-  <p>No. Pendaftaran: 202101031832 (1432132-H)</p>
-  <p>Alamat: 58-1, Jalan Tasik Utama 7, Medan Niaga Tasik Damai,<br>Sungai Besi, 57000 Kuala Lumpur, Malaysia</p>
-</div>
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email" required>
 
-  </div>
+        <label for="telefon">No. Telefon (WhatsApp)*</label>
+        <input type="tel" id="telefon" name="telefon" required>
 
-  <script>
-    const form = document.getElementById('loanForm');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
+        <label for="jabatan">Kementerian / Jabatan</label>
+        <input type="text" id="jabatan" name="jabatan">
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const data = {
-        nama: document.getElementById('nama').value,
-        email: document.getElementById('email').value,
-        telefon: document.getElementById('telefon').value,
-        jabatan: document.getElementById('jabatan').value
-      };
-
-      fetch('https://script.google.com/macros/s/AKfycbwv94hfxREF0wOeE0hPPmuU0VmzRDwwaMyniZz16eww4tngMsu_1A5oSzN06es-ABl4LA/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(response => response.text())
-      .then(result => {
-        if (result.toLowerCase().includes("berjaya")) {
-          successMessage.style.display = 'block';
-          errorMessage.style.display = 'none';
-          form.reset();
-        } else {
-          throw new Error("Server error");
-        }
-      })
-      .catch(error => {
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'block';
-      });
-    });
-  </script>
-
-</body>
-</html>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px;">
+          <input type="checkbox" id="persetujuan" required style="margin-top: 4px;">
+          <label for="persetujuan" style="font-size: 14px;">
+            <strong>Persetujuan*</strong><br>
+            Dengan menandakan kotak, saya mengesahkan bahawa semua maklumat adalah benar dan saya telah membaca & bersetuju dengan 
