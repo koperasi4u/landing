@@ -47,9 +47,9 @@
   <h2>Permohonan Segera</h2>
   <form id="loanForm">
     <input type="text" id="nama" placeholder="Nama Penuh" required>
-<input type="number" id="ic" placeholder="No. IC*" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">
     <input type="text" id="email" placeholder="Email*" required>
-<input type="number" id="telefon" placeholder="No. Telefon (WhatsApp)*" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">    <input type="text" id="jabatan" placeholder="Kementerian / Jabatan" >
+<input type="number" id="telefon" placeholder="No. Telefon (WhatsApp)*" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">    
+    <input type="text" id="jabatan" placeholder="Kementerian / Jabatan" >
 <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px;">
   <input type="checkbox" id="persetujuan" required style="margin-top: 4px;">
   <label for="persetujuan" style="font-size: 14px;">
@@ -88,13 +88,12 @@
 
       const data = {
         nama: document.getElementById('nama').value,
-        ic: document.getElementById('ic').value,
-        gaji: document.getElementById('gaji').value,
+        email: document.getElementById('email').value,
         telefon: document.getElementById('telefon').value,
-        jawatan: document.getElementById('jawatan').value
+        jabatan: document.getElementById('jabatan').value
       };
 
-      fetch('https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxs6gofSZYegZW5pp7Bbo697gowiKwv9wkaXhBBgf8Xpp2vwvhYqzYpykb_jxj8gF3t-w/exec/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbxs6gofSZYegZW5pp7Bbo697gowiKwv9wkaXhBBgf8Xpp2vwvhYqzYpykb_jxj8gF3t-w/exec/exec', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
