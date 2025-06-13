@@ -66,27 +66,13 @@
 
     <div class="form-section">
       <h2>Permohonan Segera</h2>
-      <form id="loanForm" action="#" method="post">
-        <div class="form-group">
-          <label for="nama">Nama Penuh</label>
-          <input type="text" id="nama" name="nama" required autocomplete="name" />
-        </div>
-        <div class="form-group">
-          <label for="ic">IC No*</label>
-          <input type="text" id="ic" name="ic" required pattern="\d{12}" title="Masukkan nombor IC 12 digit tanpa sempang" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email*</label>
-          <input type="email" id="email" name="email" required autocomplete="email" />
-        </div>
-        <div class="form-group">
-          <label for="telefon">No. Telefon (WhatsApp)*</label>
-          <input type="tel" id="telefon" name="telefon" required pattern="01[0-9]{8,9}" title="Masukkan nombor telefon bimbit yang sah" />
-        </div>
-        <div class="form-group">
-          <label for="jabatan">Kementerian / Jabatan</label>
-          <input type="text" id="jabatan" name="jabatan" autocomplete="organization" />
-        </div>
+<form action="https://script.google.com/macros/s/AKfycbwssH-SmmQ2ytkuswkX8YOXQXiIVKB7-1dvfL7H-zy9gjrJS878wlB3LC8Gmr1H2mPcWw/exec" method="POST">
+  <input type="text" name="nama" placeholder="Nama" required>
+  <input type="text" id="ic" name="ic" required pattern="\d{12}" title="Masukkan nombor IC 12 digit tanpa sempang" />
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="tel" id="telefon" name="telefon" required pattern="01[0-9]{8,9}" title="Masukkan nombor telefon bimbit yang sah" />
+  <input type="text" id="jabatan" name="jabatan" autocomplete="organization" />
+  <button type="submit">Submit</button>
 
         <div class="consent-container">
           <input type="checkbox" id="persetujuan" required />
