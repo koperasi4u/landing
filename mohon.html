@@ -11,7 +11,6 @@
   <meta property="og:image" content="https://example.com/preview.jpg" />
   <meta property="og:url" content="https://example.com" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <style>
     body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; color: #333; }
     .container { max-width: 700px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -66,13 +65,12 @@
 
     <div class="form-section">
       <h2>Permohonan Segera</h2>
-<form action="https://script.google.com/macros/s/AKfycbwssH-SmmQ2ytkuswkX8YOXQXiIVKB7-1dvfL7H-zy9gjrJS878wlB3LC8Gmr1H2mPcWw/exec" method="POST">
-  <input type="text" name="nama" placeholder="Nama" required>
-  <input type="text" id="ic" name="ic" required pattern="\d{12}" title="Masukkan nombor IC 12 digit tanpa sempang" />
-  <input type="email" name="email" placeholder="Email" required>
-  <input type="tel" id="telefon" name="telefon" required pattern="01[0-9]{8,9}" title="Masukkan nombor telefon bimbit yang sah" />
-  <input type="text" id="jabatan" name="jabatan" autocomplete="organization" />
-
+      <form id="loanForm">
+        <input type="text" id="nama" name="nama" placeholder="Nama" required />
+        <input type="text" id="ic" name="ic" required pattern="\d{12}" title="Masukkan nombor IC 12 digit tanpa sempang" placeholder="Nombor IC (12 digit tanpa '-')" />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        <input type="tel" inputmode="tel" id="telefon" name="telefon" required pattern="01[0-9]{8,9}" title="Masukkan nombor telefon bimbit yang sah" placeholder="Nombor Telefon Bimbit" />
+        <input type="text" id="jabatan" name="jabatan" autocomplete="organization" placeholder="Nama Jabatan (jika ada)" />
 
         <div class="consent-container">
           <input type="checkbox" id="persetujuan" required />
@@ -128,36 +126,31 @@
         return;
       }
 
-      const data = {
-        nama: document.getElementById('nama').value,
-        email: document.getElementById('email').value,
-        telefon: document.getElementById('telefon').value,
-        jabatan: document.getElementById('jabatan').value
-      };
+      const formData = new FormData(form);
 
       fetch('https://script.google.com/macros/s/AKfycbwssH-SmmQ2ytkuswkX8YOXQXiIVKB7-1dvfL7H-zy9gjrJS878wlB3LC8Gmr1H2mPcWw/exec', {
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
+        body: formData
       })
-        .then(response => response.text())
-        .then(result => {
-          if (result.toLowerCase().includes("berjaya")) {
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-            form.reset();
-            successMessage.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            throw new Error("Server error");
-          }
-        })
-        .catch(error => {
-          successMessage.style.display = 'none';
-          errorMessage.textContent = "Ralat semasa penghantaran. Sila cuba semula.";
-          errorMessage.style.display = 'block';
-          errorMessage.scrollIntoView({ behavior: 'smooth' });
-        });
+      .then(response => response.text())
+      .then(result => {
+        if (result.toLowerCase().includes("berjaya")) {
+          successMessage.style.display = 'block';
+          errorMessage.style.display = 'none';
+          form.reset();
+          successMessage.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          throw new Error("Server error");
+        }
+      })
+      .catch(error => {
+        successMessage.style.display = 'none';
+        errorMessage.textContent = "Ralat semasa penghantaran. Sila cuba semula.";
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth' });
+      });
     });
   </script>
 </body>
 </html>
+
